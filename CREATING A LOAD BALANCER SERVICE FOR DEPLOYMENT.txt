@@ -1,0 +1,15 @@
+CREATING A LOAD BALANCER SERVICE FOR DEPLOYMENT
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-svc
+  labels:
+    app: webapp
+spec:
+  selector:
+    app.kubernetes.io/name: webapp
+  ports:
+    - port: 80
+      targetPort: 30001
+  type: LoadBalancer

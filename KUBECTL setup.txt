@@ -1,0 +1,58 @@
+Kubectl setup
+
+create S3 bucket
+
+create an IAM user
+
+create DNS record
+
+login to your ec2 instance
+
+sudo apt update -y
+
+configure aws  IAM user to be able to use your machine using the command :
+
+ * aws configure
+enter your access key id ,secrete key id, zone and json output format
+
+Install kubectl using this command from kubernetes documentation
+
+*  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+ 
+
+* ssh-keygen (this creates an ssh key that kubectl will use to log in to other servers that will be deployed later.)
+
+just click enter for all the prompt
+
+*do ls -la
+
+ add executable permision to the kubectl
+*chmod +x ./kubectl
+
+*sudo mv ./kubectl /usr/local/bin   ( this is so that we can issue kubectl from anywhere in our terminal and not just in kubectl directory.( make sure you are in the location where you did the chmod)
+
+* kubectl --help ( to confirm kubectl installation)
+
+INSTALL KOPS
+
+paste the code below form kubernetes documenttion on your terminal and let it run.
+
+*curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+
+*ls -la ( to see the kops name)
+
+*chmod +x kops-linux-amd64 
+
+* sudo mv kops-linux-amd64 /usr/local/bin/kops ( to move and change the name to kops)
+
+* do kops (to verify the name)
+
+Do your domain verification to see if the NS records provided earlier is valid.
+
+*nslookup -type=ns kops22.gtitechub.com (this displays all our ns records)
+
+
+ 
+
+
+

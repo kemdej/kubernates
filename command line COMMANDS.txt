@@ -1,0 +1,13 @@
+ command line COMMANDS
+
+kubectl run web --image=nginx (creates a pod)
+
+kubectl get pods (list all the pods)
+
+kubectl exec web curl IP address ( exposes our pod on the command line)
+
+kubectl describe pod web ( gives detailed desciption of the pod)
+
+kubectl expose pod web --port=80 --target-port=80 ( creates a service called web)
+
+kubectl get services ( displays all services)
